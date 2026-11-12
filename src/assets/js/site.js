@@ -40,7 +40,7 @@
     const stop = () => { clearInterval(timer); timer = null; };
     const run = () => {
       stop();
-      if (!userPaused && inView && !document.hidden && screens.length > 1) timer = setInterval(() => show(i + 1), 4200);
+      if (!userPaused && inView && !document.hidden && screens.length > 1) timer = setInterval(() => show(i + 1), 6500);
     };
     const syncBtn = () => {
       if (!playBtn) return;
@@ -59,6 +59,80 @@
     // First screen stays a little longer before the sequence starts
     setTimeout(run, 1200);
   }
+
+  // ── Hero entrance, pointer tilt, live feed ──
+  const hero = document.querySelector("[data-hero]");
+  if (hero) {
+    requestAnimationFrame(() => requestAnimationFrame(() => hero.classList.add("is-ready")));
+    document.querySelectorAll("[data-hero]").forEach((el) =>
+      new IntersectionObserver(([e]) => el.classList.toggle("is-off", !e.isIntersecting)).observe(el));
+
+    const tilt = hero.querySelector("[data-tilt]");
+    if (tilt && !reduce && matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      let raf = 0;
+      hero.addEventListener("pointermove", (e) => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          raf = 0;
+          const r = hero.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+          tilt.style.transform = `perspective(1200px) rotateY(${(x * 12).toFixed(2)}deg) rotateX(${(-y * 8).toFixed(2)}deg)`;
+        });
+      });
+      hero.addEventListener("pointerleave", () => { tilt.style.transform = ""; });
+    }
+
+    // Preview-only illustrative feed: a new job slides in at the top every few seconds (FLIP for the rest)
+    const feed = hero.querySelector("[data-feed]");
+    if (feed && !reduce) {
+      const pool = [["Dog walking", "Pets", "#2F9E8F"], ["Car wash", "Home", "#1C7ED6"], ["Ironing help", "Home", "#C2255C"], ["Leaflet drop", "Events", "#E8590C"], ["Furniture move", "Home", "#5F3DC4"], ["Bin cleaning", "Home", "#2B8A3E"]];
+      const ease = "cubic-bezier(0.23, 1, 0.32, 1)";
+      let k = 0;
+      setInterval(() => {
+        if (document.hidden || hero.classList.contains("is-off") || !feed.closest(".screen.is-active")) return;
+        const cards = [...feed.children];
+        const tops = cards.map((c) => c.getBoundingClientRect().top);
+        const [title, cat, col] = pool[k++ % pool.length];
+        const el = cards[0].cloneNode(true);
+        el.classList.add("is-new");
+        el.querySelector(".mock-ico").style.background = col;
+        el.querySelector("b").textContent = title;
+        el.querySelector("i").textContent = cat + " · Just now";
+        el.querySelector(".mock-new")?.remove();
+        const pill = document.createElement("span"); pill.className = "mock-new"; pill.textContent = "New";
+        el.insertBefore(pill, el.querySelector(".mock-chev"));
+        cards.forEach((c) => { c.classList.remove("is-new"); c.querySelector(".mock-new")?.remove(); });
+        feed.prepend(el);
+        cards.forEach((c, i) => {
+          const dy = tops[i] - c.getBoundingClientRect().top;
+          if (dy) c.animate([{ transform: `translateY(${dy}px)` }, { transform: "none" }], { duration: 550, easing: ease });
+        });
+        const last = feed.lastElementChild;
+        if (feed.children.length > 6) last.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, easing: "ease-out" }).onfinish = () => last.remove();
+      }, 2600);
+    }
+  }
+
+  // ── Highlights carousel: buttons step one card, progress follows scroll ──
+  document.querySelectorAll("[data-carousel]").forEach((root) => {
+    const track = root.querySelector(".hl-track");
+    const prev = root.querySelector("[data-prev]"), next = root.querySelector("[data-next]");
+    const bar = root.querySelector(".hl-progress span");
+    const step = () => track.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 16);
+    const sync = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= max - 2;
+      const visible = track.clientWidth / track.scrollWidth;
+      bar.style.setProperty("--p", max > 0 ? (visible + (1 - visible) * (track.scrollLeft / max)).toFixed(3) : 1);
+    };
+    const go = (dir) => track.scrollBy({ left: dir * step(), behavior: reduce ? "auto" : "smooth" });
+    prev.addEventListener("click", () => go(-1));
+    next.addEventListener("click", () => go(1));
+    track.addEventListener("scroll", () => requestAnimationFrame(sync), { passive: true });
+    addEventListener("resize", sync);
+    sync();
+  });
 
   // ── Gentle reveals ────────────────────────────
   const reveals = document.querySelectorAll(".reveal");

@@ -10,6 +10,7 @@
     <div class="mock-search">Search jobs</div>
     <div class="mock-chips"><span class="on">All</span><span>Home</span><span>Garden</span><span>Events</span></div>
     {% set jobs = [["Garden tidy-up","Garden","#3E8E5E"],["Help moving boxes","Home","#D63832"],["Flat-pack assembly","Home","#E08A1E"],["Event set-up crew","Events","#3B5BDB"],["Window cleaning","Home","#7A4FD1"]] %}
+    <div class="mock-feed" data-feed>
     {% for j in jobs %}
     <div class="mock-card">
       <span class="mock-ico" style="background:{{ j[2] }}"></span>
@@ -17,6 +18,7 @@
       <span class="mock-chev"></span>
     </div>
     {% endfor %}
+    </div>
   {% elif name == "details" %}
     <div class="mock-top"><span class="mock-back"></span><span class="mock-h">Job details</span></div>
     <div class="mock-hero-block"><span class="mock-ico big" style="background:#D63832"></span></div>

@@ -10,9 +10,30 @@ description: "Instant jobs. Instant pay. Find quick jobs or post a job with DEL-
 # ───────────────────────────────────────────────────────────────
 
 hero:
+  theme: "red"          # "red" or "light"
   eyebrow: "The UK quick-jobs app"
   headline: "Instant jobs.<br><span class=\"accent\">Instant pay.</span>"
   text: "Looking for extra work or need someone for a job? Get started with DEL-BOY®."
+
+# Swipeable highlight cards under the hero. icon: bolt, pound, search, plus or check.
+highlights:
+  title: "Why DEL-BOY®"
+  items:
+    - icon: bolt
+      title: "Instant jobs"
+      text: "Quick jobs ready to pick up, all in one app."
+    - icon: pound
+      title: "Instant pay"
+      text: "Get paid for the work you do, without the wait."
+    - icon: search
+      title: "Find work"
+      text: "Browse jobs and check the details before you go."
+    - icon: plus
+      title: "Post a job"
+      text: "Need a hand? Describe the job and add the details."
+    - icon: check
+      title: "Get it done"
+      text: "Keep track of every job from your account."
 
 # App screens shown in the animated phone and the walkthrough.
 # image: path to an APPROVED screenshot in src/assets/img/screens/ (portrait, 9:19.5).

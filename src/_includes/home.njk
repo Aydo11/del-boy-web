@@ -6,18 +6,23 @@ layout: base.njk
 {% for s in screens %}{% if s.image or (build.preview and s.mock) %}{% set shown = (shown.push(s), shown) %}{% endif %}{% endfor %}
 
 {# ── A. HERO ─────────────────────────────────────────── #}
-<section class="hero" aria-labelledby="hero-title">
+<section class="hero{% if hero.theme == 'red' %} hero--red{% endif %}" aria-labelledby="hero-title" data-hero>
+  <div class="hero-ambient" aria-hidden="true">
+    <span class="blob blob-1"></span><span class="blob blob-2"></span>
+    <img class="hero-mark" src="/assets/img/icon-white.svg" alt="" width="640" height="640">
+  </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">{{ hero.eyebrow }}</p>
-      <h1 id="hero-title">{{ hero.headline | safe }}</h1>
-      <p class="lede">{{ hero.text }}</p>
-      {% set ctaLocation = "hero" %}{% include "partials/store.njk" %}
+      <p class="eyebrow rise" style="--d:0">{{ hero.eyebrow }}</p>
+      <h1 id="hero-title">{% for l in hero.headline.split("<br>") %}<span class="line"><span class="line-in" style="--d:{{ loop.index }}">{{ l | safe }}</span></span>{% endfor %}</h1>
+      <p class="lede rise" style="--d:3">{{ hero.text }}</p>
+      <div class="rise" style="--d:4">{% set ctaLocation = "hero" %}{% include "partials/store.njk" %}</div>
     </div>
 
     <div class="hero-visual">
       <div class="spotlight" aria-hidden="true"></div>
       <div class="phone-stage" data-phone>
+        <div class="phone-tilt" data-tilt>
         <div class="phone">
           <div class="phone-screen" aria-live="off">
             {% if shown.length %}
@@ -30,6 +35,7 @@ layout: base.njk
               <figure class="screen is-active splash"><img src="/assets/img/icon-red.svg" alt="DEL-BOY® app icon" width="120" height="120"></figure>
             {% endif %}
           </div>
+        </div>
         </div>
 
         <div class="float-card fc-1" aria-hidden="true">
@@ -57,6 +63,36 @@ layout: base.njk
     </div>
   </div>
 </section>
+
+{% if highlights %}
+{% set icons = {
+  bolt: '<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/>',
+  pound: '<path d="M17 7.5A4 4 0 0 0 9 9v11M6 20h12M6 13h8"/>',
+  search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
+  check: '<path d="m5 12.5 4.5 4.5L19 7"/>'
+} %}
+<section class="highlights" aria-labelledby="hl-title" data-carousel>
+  <div class="wrap hl-head">
+    <h2 id="hl-title" class="section-title">{{ highlights.title }}</h2>
+    <div class="hl-controls">
+      <button type="button" class="hl-btn" data-prev aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button type="button" class="hl-btn" data-next aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <ul class="hl-track" role="list" tabindex="0" aria-label="{{ highlights.title }}">
+    {% for h in highlights.items %}
+    <li class="hl-card hl-card-{{ loop.index }}">
+      <span class="hl-num" aria-hidden="true">{{ "0" + loop.index if loop.index < 10 else loop.index }}</span>
+      <span class="hl-icon" aria-hidden="true"><svg viewBox="0 0 24 24">{{ icons[h.icon] | safe }}</svg></span>
+      <h3>{{ h.title }}</h3>
+      <p>{{ h.text }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  <div class="wrap"><div class="hl-progress" aria-hidden="true"><span></span></div></div>
+</section>
+{% endif %}
 
 {# ── B. TWO WAYS ─────────────────────────────────────── #}
 <section class="section audiences" aria-labelledby="ways-title">
