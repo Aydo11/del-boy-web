@@ -12,4 +12,6 @@ export default {
   preview: !production,
   iosLive,
   branch: branch || "local",
+  // Changes every build so browsers fetch the new CSS/JS straight away
+  version: Date.now().toString(36),
 };
