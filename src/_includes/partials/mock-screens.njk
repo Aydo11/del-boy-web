@@ -1,0 +1,41 @@
+{# PREVIEW-ONLY illustrative app screens. Rendered only when build.preview is true and no approved screenshot exists. #}
+{% macro mock(name) %}
+<div class="mock mock-{{ name }}" aria-hidden="true">
+  <div class="mock-status"><span>9:41</span><span class="mock-bars"></span></div>
+  {% if name == "browse" %}
+    <div class="mock-top">
+      <img src="/assets/img/icon-red.svg" alt="" width="26" height="26">
+      <span class="mock-h">Quick jobs</span>
+    </div>
+    <div class="mock-search">Search jobs</div>
+    <div class="mock-chips"><span class="on">All</span><span>Home</span><span>Garden</span><span>Events</span></div>
+    {% set jobs = [["Garden tidy-up","Garden","#3E8E5E"],["Help moving boxes","Home","#D63832"],["Flat-pack assembly","Home","#E08A1E"],["Event set-up crew","Events","#3B5BDB"],["Window cleaning","Home","#7A4FD1"]] %}
+    {% for j in jobs %}
+    <div class="mock-card">
+      <span class="mock-ico" style="background:{{ j[2] }}"></span>
+      <span class="mock-lines"><b>{{ j[0] }}</b><i>{{ j[1] }} · Posted today</i></span>
+      <span class="mock-chev"></span>
+    </div>
+    {% endfor %}
+  {% elif name == "details" %}
+    <div class="mock-top"><span class="mock-back"></span><span class="mock-h">Job details</span></div>
+    <div class="mock-hero-block"><span class="mock-ico big" style="background:#D63832"></span></div>
+    <div class="mock-title">Help moving boxes</div>
+    <div class="mock-chips"><span>Home</span><span>Posted today</span></div>
+    <div class="mock-para"><i></i><i></i><i></i><i class="short"></i></div>
+    <div class="mock-sub">What's involved</div>
+    <div class="mock-para"><i></i><i class="short"></i></div>
+    <div class="mock-btn">Next step</div>
+  {% elif name == "post" %}
+    <div class="mock-top"><span class="mock-back"></span><span class="mock-h">Post a job</span></div>
+    <label class="mock-label">What do you need done?</label>
+    <div class="mock-field filled">Help clearing a garden</div>
+    <label class="mock-label">Category</label>
+    <div class="mock-field">Garden</div>
+    <label class="mock-label">Details</label>
+    <div class="mock-field tall"><i></i><i></i><i class="short"></i></div>
+    <div class="mock-btn">Continue</div>
+  {% endif %}
+  <div class="mock-watermark">Illustrative preview</div>
+</div>
+{% endmacro %}

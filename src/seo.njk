@@ -1,0 +1,21 @@
+---js
+{
+  pagination: { data: "files", size: 1, alias: "f" },
+  files: ["sitemap.xml", "robots.txt"],
+  permalink: (data) => "/" + data.f,
+  eleventyExcludeFromCollections: true,
+}
+---
+{%- if f == "sitemap.xml" -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for p in ["/", "/support/", "/privacy/", "/terms/"] %}
+  <url><loc>{{ site.url }}{{ p }}</loc></url>
+{%- endfor %}
+</urlset>
+{%- else -%}
+User-agent: *
+{% if build.production %}Allow: /
+
+Sitemap: {{ site.url }}/sitemap.xml{% else %}Disallow: /{% endif %}
+{%- endif %}

@@ -1,0 +1,14 @@
+{# Download block. Set `ctaLocation` before including (hero / final).
+   The badge links to the App Store once site.ios.url is set and ios.status is "live". #}
+<div class="store">
+  {% if build.iosLive %}
+  <a class="store-badge" href="{{ site.ios.url }}" data-cta="{{ ctaLocation }}">
+    <img src="/assets/img/app-store-badge.png" alt="Download DEL-BOY® on the App Store" width="162" height="54">
+  </a>
+  {% else %}
+  <span class="store-badge is-pending">
+    <img src="/assets/img/app-store-badge.png" alt="Download on the App Store — link coming soon" width="162" height="54">
+  </span>
+  {% endif %}
+  {% if ctaLocation == "hero" and not build.iosLive %}<a class="btn btn-ghost" href="#how-it-works">See how it works</a>{% endif %}
+</div>

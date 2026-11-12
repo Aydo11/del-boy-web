@@ -1,0 +1,45 @@
+{
+  "_help": "Main settings for the whole website. See EDITING.md. Change a value here and it updates on every page.",
+
+  "name": "DEL-BOY®",
+  "url": "https://del-boy.com",
+  "productionBranch": "main",
+
+  "ios": {
+    "_help": "status: 'prelaunch' hides every download badge. Set to 'live' AND paste the verified UK App Store URL to show the badges.",
+    "status": "prelaunch",
+    "url": "",
+    "prelaunchLabel": "iOS launch coming soon"
+  },
+  "android": {
+    "label": "Android coming soon"
+  },
+
+  "supportEmail": "ceo@del-boy.com",
+  "businessEmail": "ceo@del-boy.com",
+
+  "company": {
+    "_help": "Shown in the footer of every page. Set verified to true only after the client has confirmed these details.",
+    "verified": false,
+    "name": "GAME-BOY TECHNOLOGY LTD",
+    "number": "14277750",
+    "jurisdiction": "Registered in England and Wales",
+    "address": "1 International House, St. Katharine's Way, London E1W 1UN"
+  },
+
+  "form": {
+    "_help": "Hosted form endpoint (e.g. Formspree). Leave empty to hide the form and show the email address only.",
+    "action": "",
+    "provider": ""
+  },
+
+  "legal": {
+    "_help": "Set approved to true only when the client has signed off the final wording in privacy.md / terms.md.",
+    "privacyApproved": false,
+    "termsApproved": false,
+    "privacyUpdated": "",
+    "termsUpdated": ""
+  },
+
+  "analytics": false
+}

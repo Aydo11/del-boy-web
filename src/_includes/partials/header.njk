@@ -1,0 +1,24 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="DEL-BOY® home">
+      <img src="/assets/img/logo-white-bg.svg" alt="DEL-BOY®" width="134" height="42">
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="menu-icon" aria-hidden="true"></span>
+      <span class="menu-label">Menu</span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/#find-work">Find work</a></li>
+        <li><a href="/#post-a-job">Post a job</a></li>
+        <li><a href="/#how-it-works">How it works</a></li>
+        <li><a href="/support/"{% if page.url == "/support/" %} aria-current="page"{% endif %}>Support</a></li>
+      </ul>
+      {% if build.iosLive %}
+      <a class="btn btn-small header-cta" href="{{ site.ios.url }}" data-cta="nav">Get the app<span class="visually-hidden"> on the App Store (opens App Store)</span></a>
+      {% endif %}
+    </nav>
+  </div>
+</header>
