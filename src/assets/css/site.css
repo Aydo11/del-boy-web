@@ -382,3 +382,8 @@ html:not(.js) .hl-progress { display: none; }
 .mock-field.filled { color: var(--ink); border-color: var(--ink); }
 .mock-field.tall { display: grid; gap: 2cqw; padding-block: 4cqw; }
 .mock-watermark { position: absolute; left: 50%; bottom: 1.6cqw; transform: translateX(-50%); font-size: 2.8cqw; font-weight: 600; color: #8C3A35; background: #FBE3E1; padding: .6cqw 2.4cqw; border-radius: 99px; white-space: nowrap; }
+
+/* FAQ question rows: plain block text so inline marks like ® stay in the sentence */
+.faq summary { display: block; position: relative; padding-right: 52px; }
+.faq summary::after { position: absolute; right: 22px; top: calc(50% - 7px); }
+.faq[open] summary::after { top: calc(50% - 3px); }
