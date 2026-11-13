@@ -460,3 +460,6 @@ html:not(.js) .hl-progress { display: none; }
 .roadmap-item { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 24px; }
 .roadmap-item h3 { margin: 14px 0 6px; font-size: 1.3rem; }
 .roadmap-item p { margin: 0; color: var(--muted); }
+
+/* Final section developer credit */
+.final-credit { margin: 28px 0 0; font-size: .85rem; letter-spacing: .02em; color: #8F857A; }
