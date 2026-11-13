@@ -1,7 +1,7 @@
-{# Renders one app screen: approved screenshot, else preview-only mock. Expects `s`. #}
+{# Renders one app screen: screenshot if set, else the illustrated app screen. Expects `s`. #}
 {% if s.image %}
 <img src="{{ s.image }}" alt="{{ s.alt }}" width="390" height="844" {% if eager %}fetchpriority="high"{% else %}loading="lazy" decoding="async"{% endif %}>
-{% elif build.preview and s.mock %}
-<span class="visually-hidden">{{ s.alt }} (illustrative preview)</span>
+{% elif s.mock %}
+<span class="visually-hidden">{{ s.alt }}</span>
 {{ mocks.mock(s.mock) }}
 {% endif %}
