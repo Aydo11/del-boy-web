@@ -22,7 +22,7 @@ faqGroups:
       - q: "I can't sign in. What should I do?"
         a: "Check you're using the same details you signed up with. If you're still stuck, email us from the address linked to your account and we'll help."
       - q: "How do I delete my account?"
-        a: "Email us from the address linked to your account and ask for it to be deleted. See our [Privacy notice](/privacy/) for what happens to your data."
+        a: "In the app, go to Settings and tap **Delete my account**. This permanently removes your profile, documents and sign-in. Completed job and payment records are kept anonymised, as required by law. This can't be undone. See our [Privacy notice](/privacy/) for more."
   - title: "Jobs"
     items:
       - q: "Can I use DEL-BOY® to post a job?"
