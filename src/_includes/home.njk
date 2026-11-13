@@ -3,7 +3,7 @@ layout: base.njk
 ---
 {% import "partials/mock-screens.njk" as mocks %}
 {% set shown = [] %}
-{% for s in screens %}{% if s.image or (build.preview and s.mock) %}{% set shown = (shown.push(s), shown) %}{% endif %}{% endfor %}
+{% for s in screens %}{% if s.image or s.mock %}{% set shown = (shown.push(s), shown) %}{% endif %}{% endfor %}
 
 {# ── A. HERO ─────────────────────────────────────────── #}
 <section class="hero{% if hero.theme == 'red' %} hero--red{% endif %}" aria-labelledby="hero-title" data-hero>
