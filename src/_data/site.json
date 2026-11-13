@@ -15,8 +15,14 @@
     "label": "Android coming soon"
   },
 
-  "supportEmail": "ceo@del-boy.com",
-  "businessEmail": "ceo@del-boy.com",
+  "supportEmail": "support@del-boy.co.uk",
+  "businessEmail": "support@del-boy.co.uk",
+
+  "whatsapp": {
+    "_help": "groupUrl: community group invite link. number: your WhatsApp number in international format with no + or spaces (e.g. 447700900123). Leave number empty to hide the direct chat link.",
+    "groupUrl": "https://chat.whatsapp.com/CUYgy5kGZeS9Tbzxqo3b87",
+    "number": ""
+  },
 
   "company": {
     "_help": "Shown in the footer of every page. Set verified to true only after the client has confirmed these details.",
