@@ -4,7 +4,7 @@ const base = process.argv[2] || "http://localhost:8088", out = process.argv[3] |
 (async () => {
   const b = await chromium.launch(); let fails = 0;
   const vps = [["desktop", { viewport: { width: 1366, height: 860 } }], ["iphone", devices["iPhone 13"]], ["w320", { viewport: { width: 320, height: 640 }, isMobile: true, hasTouch: true }]];
-  for (const [name, opts] of vps) for (const route of ["/", "/support/", "/privacy/", "/terms/"]) {
+  for (const [name, opts] of vps) for (const route of ["/", "/support/", "/privacy/", "/terms/", "/release-notes/"]) {
     const ctx = await b.newContext(opts), p = await ctx.newPage(), errs = [];
     p.on("console", (m) => m.type() === "error" && errs.push(m.text())); p.on("pageerror", (e) => errs.push(e.message));
     const r = await p.goto(base + route, { waitUntil: "networkidle" });
