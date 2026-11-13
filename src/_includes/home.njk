@@ -123,7 +123,6 @@ layout: base.njk
 <section id="how-it-works" class="section how" aria-labelledby="how-title">
   <div class="wrap">
     <h2 id="how-title" class="section-title reveal">How it works</h2>
-    {% if build.preview %}<p class="draft-note">Preview wording — steps to be confirmed against the current app.</p>{% endif %}
     <div class="steps-grid">
       <div class="steps reveal" id="steps-workers">
         <h3>If you're looking for work</h3>
@@ -211,5 +210,6 @@ layout: base.njk
     <h2 id="final-title">{{ final.title }}</h2>
     <p>{{ final.text }}</p>
     {% set ctaLocation = "final" %}{% include "partials/store.njk" %}
+    {% if final.credit %}<p class="final-credit">{{ final.credit }}</p>{% endif %}
   </div>
 </section>
