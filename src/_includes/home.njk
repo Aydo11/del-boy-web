@@ -40,7 +40,7 @@ layout: base.njk
 
         <div class="float-card fc-1" aria-hidden="true">
           <span class="fc-icon fc-cal"></span>
-          <span><b>Quick jobs</b><i>Fit them around your day</i></span>
+          <span><b>Instant jobs</b><i>Pop up live on the map</i></span>
         </div>
         <div class="float-card fc-2" aria-hidden="true">
           <span class="fc-icon fc-pin"></span>
@@ -70,7 +70,10 @@ layout: base.njk
   pound: '<path d="M17 7.5A4 4 0 0 0 9 9v11M6 20h12M6 13h8"/>',
   search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
   plus: '<path d="M12 5v14M5 12h14"/>',
-  check: '<path d="m5 12.5 4.5 4.5L19 7"/>'
+  check: '<path d="m5 12.5 4.5 4.5L19 7"/>',
+  shield: '<path d="M12 3 5 6v5c0 4.5 3 8.4 7 10 4-1.6 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/>',
+  percent: '<path d="M19 5 5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/>',
+  home: '<path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/>'
 } %}
 <section class="highlights" aria-labelledby="hl-title" data-carousel>
   <div class="wrap hl-head">
@@ -164,7 +167,7 @@ layout: base.njk
 {# ── E. QUICK QUESTIONS ──────────────────────────────── #}
 <section class="section faq-home" aria-labelledby="faq-title">
   <div class="wrap narrow">
-    <h2 id="faq-title" class="section-title reveal">Quick questions</h2>
+    <h2 id="faq-title" class="section-title reveal">{{ faqTitle or "Instant questions" }}</h2>
     <div class="faq-list">
       {% for f in faqs %}
       <details class="faq">
@@ -176,6 +179,30 @@ layout: base.njk
     <p class="more-help"><a class="text-link" href="/support/">More answers on the Support page <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
+
+{# ── WhatsApp community ─────────────────────────────── #}
+{% if community and site.whatsapp.groupUrl %}
+<section class="section community" aria-labelledby="community-title">
+  <div class="wrap community-card reveal">
+    <div class="community-copy">
+      <p class="eyebrow">WhatsApp community</p>
+      <h2 id="community-title">{{ community.title }}</h2>
+      <p>{{ community.text }}</p>
+      <div class="community-actions">
+        <a class="btn btn-wa" href="{{ site.whatsapp.groupUrl }}" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9c-1.2-.5-2.3-1.6-2.8-2.8l.9-1-1-2Z"/></svg>
+          {{ community.button }}
+        </a>
+        {% if site.whatsapp.number %}<a class="text-link" href="https://wa.me/{{ site.whatsapp.number }}" rel="noopener">Message us on WhatsApp <span aria-hidden="true">→</span></a>{% endif %}
+      </div>
+    </div>
+    <figure class="community-qr">
+      <img src="/assets/img/whatsapp-qr.svg" alt="QR code to join the DEL-BOY® WhatsApp community group" width="220" height="220" loading="lazy">
+      <figcaption>Scan with your phone camera</figcaption>
+    </figure>
+  </div>
+</section>
+{% endif %}
 
 {# ── F. FINAL DOWNLOAD ───────────────────────────────── #}
 <section class="final" aria-labelledby="final-title">
