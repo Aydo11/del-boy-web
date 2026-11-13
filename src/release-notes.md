@@ -2,9 +2,9 @@
 layout: page.njk
 pageClass: release-notes
 permalink: /release-notes/
-title: "Release notes | DEL-BOY®"
+title: "Release | DEL-BOY®"
 description: "What's new in the DEL-BOY® app, and what's coming next."
-heading: "Release notes"
+heading: "Release"
 intro: "What's new in DEL-BOY®, newest first."
 
 # Add a new release at the TOP of this list. status: "installed" marks the current version.
