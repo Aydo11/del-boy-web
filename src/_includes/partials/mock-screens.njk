@@ -2,14 +2,68 @@
 {% macro mock(name) %}
 <div class="mock mock-{{ name }}" aria-hidden="true">
   <div class="mock-status"><span>9:41</span><span class="mock-bars"></span></div>
-  {% if name == "browse" %}
+  {% if name == "map" %}
+    {# Live map, dark theme: stylised streets drawn here, not real map tiles #}
+    <div class="map-canvas">
+      <svg viewBox="0 0 390 560" preserveAspectRatio="xMidYMid slice">
+        <rect width="390" height="560" fill="#18202c"/>
+        <g fill="#1c4a33">
+          <path d="M12 300c34-26 82-22 104 2l6 52c-40 24-86 22-112 4z"/>
+          <path d="M262 92c30-12 70-4 92 18l-10 46c-36 10-70 4-92-14z"/>
+          <path d="M150 470c26-14 66-12 86 6l-4 40c-32 12-64 10-86-4z"/>
+          <path d="M300 380c20-8 46-4 60 10l-6 30c-22 8-44 6-58-6z"/>
+        </g>
+        <g stroke="#263042" stroke-width="3" fill="none" stroke-linecap="round">
+          <path d="M0 60h390M0 130h390M0 210h390M0 280h390M0 350h390M0 420h390M0 500h390"/>
+          <path d="M40 0v560M110 0v560M180 0v560M250 0v560M320 0v560"/>
+          <path d="M0 20l390 90M0 400l390-120M60 560l200-560"/>
+        </g>
+        <g stroke="#3a4760" stroke-width="7" fill="none" stroke-linecap="round">
+          <path d="M-10 170c90 10 160 60 220 40s120-80 190-60"/>
+          <path d="M140 -10c10 120 40 200 20 300s10 200 40 280"/>
+          <path d="M-10 470c120-30 230-10 410-60"/>
+        </g>
+        <path d="M240 -10c-20 160 40 260 160 330" stroke="#4a5a78" stroke-width="9" fill="none" stroke-linecap="round"/>
+        <g fill="#7f8ba3" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="1">
+          <text x="34" y="92">MOSELEY</text>
+          <text x="236" y="58">SPARKHILL</text>
+          <text x="262" y="262">HALL GREEN</text>
+          <text x="70" y="404">BILLESLEY</text>
+        </g>
+      </svg>
+      <span class="map-me"></span>
+      <span class="map-pin p1"><i>Kitchen</i></span>
+      <span class="map-pin p2"><i>Delivery</i></span>
+      <span class="map-pin p3"><i>Takeaway</i></span>
+      <span class="map-pin p4"><i>Admin</i></span>
+      <span class="map-person a1">JP</span>
+      <span class="map-person a2">AK</span>
+      <span class="map-person a3">MR</span>
+    </div>
+    <span class="map-online">Online</span>
+    <div class="map-sheet">
+      <div class="map-sheet-head"><span><b>Jobs near you</b><i>You'll be pinged about jobs near you.</i></span><em>See all</em></div>
+      <div class="mock-feed" data-feed data-max="2">
+        <div class="mock-card">
+          <span class="mock-ico" style="background:#E8590C"></span>
+          <span class="mock-lines"><b>Peeling onions &amp; potatoes</b><i>Kitchen / Restaurant · Just now</i></span>
+          <span class="mock-chev"></span>
+        </div>
+        <div class="mock-card">
+          <span class="mock-ico" style="background:#1C7ED6"></span>
+          <span class="mock-lines"><b>Moving furniture</b><i>Delivery / Van · 2 min ago</i></span>
+          <span class="mock-chev"></span>
+        </div>
+      </div>
+    </div>
+  {% elif name == "browse" %}
     <div class="mock-top">
       <img src="/assets/img/icon-red.svg" alt="" width="26" height="26">
-      <span class="mock-h">Quick jobs</span>
+      <span class="mock-h">Instant jobs</span>
     </div>
     <div class="mock-search">Search jobs</div>
-    <div class="mock-chips"><span class="on">All</span><span>Home</span><span>Garden</span><span>Events</span></div>
-    {% set jobs = [["Garden tidy-up","Garden","#3E8E5E"],["Help moving boxes","Home","#D63832"],["Flat-pack assembly","Home","#E08A1E"],["Event set-up crew","Events","#3B5BDB"],["Window cleaning","Home","#7A4FD1"]] %}
+    <div class="mock-chips"><span class="on">All</span><span>Kitchen</span><span>Delivery</span><span>Admin</span></div>
+    {% set jobs = [["Peeling onions & potatoes","Kitchen / Restaurant","#E8590C"],["Filling out a form","Administrative","#7A4FD1"],["Taking orders & packing takeaways","Takeaway / Restaurant","#D63832"],["Moving furniture","Delivery / Van","#1C7ED6"],["Clean vacuum & change bags","Cleaning","#2B8A3E"]] %}
     <div class="mock-feed" data-feed>
     {% for j in jobs %}
     <div class="mock-card">
@@ -21,19 +75,19 @@
     </div>
   {% elif name == "details" %}
     <div class="mock-top"><span class="mock-back"></span><span class="mock-h">Job details</span></div>
-    <div class="mock-hero-block"><span class="mock-ico big" style="background:#D63832"></span></div>
-    <div class="mock-title">Help moving boxes</div>
-    <div class="mock-chips"><span>Home</span><span>Posted today</span></div>
+    <div class="mock-hero-block"><span class="mock-ico big" style="background:#E8590C"></span></div>
+    <div class="mock-title">Peeling onions &amp; potatoes</div>
+    <div class="mock-chips"><span>Kitchen / Restaurant</span><span>Posted today</span></div>
     <div class="mock-para"><i></i><i></i><i></i><i class="short"></i></div>
     <div class="mock-sub">What's involved</div>
     <div class="mock-para"><i></i><i class="short"></i></div>
-    <div class="mock-btn">Next step</div>
+    <div class="mock-btn">Accept job</div>
   {% elif name == "post" %}
     <div class="mock-top"><span class="mock-back"></span><span class="mock-h">Post a job</span></div>
     <label class="mock-label">What do you need done?</label>
-    <div class="mock-field filled">Help clearing a garden</div>
+    <div class="mock-field filled">Clean vacuum &amp; change bags</div>
     <label class="mock-label">Category</label>
-    <div class="mock-field">Garden</div>
+    <div class="mock-field">Cleaning</div>
     <label class="mock-label">Details</label>
     <div class="mock-field tall"><i></i><i></i><i class="short"></i></div>
     <div class="mock-btn">Continue</div>
