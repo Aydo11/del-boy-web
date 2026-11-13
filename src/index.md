@@ -1,8 +1,8 @@
 ---
 layout: home.njk
 pageClass: home
-title: "DEL-BOY® | Find Quick Jobs in the UK"
-description: "Instant jobs. Instant pay. Find quick jobs or post a job with DEL-BOY® on iPhone."
+title: "DEL-BOY® | Instant Jobs. Instant Pay."
+description: "The one app for hustle. Find jobs, connect with bosses and cash out instantly. Switch between worker and boss on the go."
 
 # ───────────────────────────────────────────────────────────────
 # HOMEPAGE CONTENT — edit the text between the quotes.
@@ -11,9 +11,9 @@ description: "Instant jobs. Instant pay. Find quick jobs or post a job with DEL-
 
 hero:
   theme: "red"          # "red" or "light"
-  eyebrow: "The UK quick-jobs app"
+  eyebrow: "The one app for hustle"
   headline: "Instant jobs.<br><span class=\"accent\">Instant pay.</span>"
-  text: "Looking for extra work or need someone for a job? Get started with DEL-BOY®."
+  text: "Find jobs, connect with bosses and cash out instantly. Switch between worker and boss on the go to post jobs and make money."
 
 # Swipeable highlight cards under the hero. icon: bolt, pound, search, plus or check.
 highlights:
@@ -21,29 +21,35 @@ highlights:
   items:
     - icon: bolt
       title: "Instant jobs"
-      text: "Quick jobs ready to pick up, all in one app."
+      text: "Pick up local jobs the second they pop up on the live map."
     - icon: pound
       title: "Instant pay"
-      text: "Get paid for the work you do, without the wait."
-    - icon: search
-      title: "Find work"
-      text: "Browse jobs and check the details before you go."
-    - icon: plus
-      title: "Post a job"
-      text: "Need a hand? Describe the job and add the details."
-    - icon: check
-      title: "Get it done"
-      text: "Keep track of every job from your account."
+      text: "Finish the job, lock in your earnings and cash out straight away."
+    - icon: shield
+      title: "100% HMRC compliant"
+      text: "Worker and employer deductions are built into the system."
+    - icon: percent
+      title: "Flat 10% fee"
+      text: "Other platforms charge up to 30%. We're transparent on every transaction."
+    - icon: home
+      title: "Owned by the grafter"
+      text: "Local and known in every neighbourhood. Unlike corporate entities."
 
 # App screens shown in the animated phone and the walkthrough.
 # image: path to an APPROVED screenshot in src/assets/img/screens/ (portrait, 9:19.5).
 # mock:  preview-only illustration used until real screenshots arrive. Never shown in production.
 screens:
+  - id: map
+    image: ""
+    mock: map
+    title: "Live map"
+    caption: "Go online and watch jobs pop up near you the moment they're posted."
+    alt: "DEL-BOY® live map showing jobs and people nearby"
   - id: browse
     image: ""
     mock: browse
     title: "Browse jobs"
-    caption: "See quick jobs in one list and pick the ones that suit you."
+    caption: "See every instant job in one list and pick the ones that suit you."
     alt: "DEL-BOY® app screen showing a list of available jobs"
   - id: details
     image: ""
@@ -62,17 +68,17 @@ audiences:
   - id: find-work
     label: "For DEL-BOY"
     title: "Find work"
-    text: "Open the app, browse quick jobs and check the details of anything that fits your day."
-    screen: browse
+    text: "Open the live map, hustle nearby jobs and build your reputation with local businesses."
+    screen: map
     link: "#how-it-works"
-    linkText: "How finding work works"
+    linkText: "Here's how hustling works"
   - id: post-a-job
     label: "For DEL-MAN"
     title: "Post a job"
-    text: "Need a hand? Describe the job, add the details and follow up in the app."
+    text: "Get the job done faster by a local worker trusted by your neighbourhood."
     screen: post
     link: "#steps-posters"
-    linkText: "How posting a job works"
+    linkText: "How to post a job"
 
 # Three steps for each audience. PREVIEW WORDING — replace with the exact steps from the app.
 steps:
@@ -96,17 +102,24 @@ walkthrough:
   text: "A quick look at the screens you'll use most."
 
 # Short questions on the homepage. Fuller answers live on the Support page (support.md).
+faqTitle: "Instant questions"
 faqs:
-  - q: "How do I download DEL-BOY® on iPhone?"
-    a: "DEL-BOY® is launching on the App Store soon. Once it's live, tap the App Store badge on this page to go straight to the download."
-  - q: "Is DEL-BOY® available on Android?"
-    a: "Android is coming soon."
+  - q: "When will the DEL-BOY® app be available on iOS and Android?"
+    a: "DEL-BOY® is launching exclusively on the App Store first, then on Google Play soon."
+  - q: "What areas does DEL-BOY® currently cover?"
+    a: "We're active across London, the West Midlands, Cumbria, South Wales, the North East and surrounding regional corridors, connecting local bosses directly with trusted workers."
   - q: "How do I get help with the app?"
     a: "Visit our [Support page](/support/) or email us — we're happy to help."
   - q: "Can I use DEL-BOY® to post a job?"
     a: "Yes — DEL-BOY® is for people who need someone for a job as well as people looking for work. See [how posting works](#steps-posters)."
 
+# WhatsApp community section (link and QR come from site.json → whatsapp)
+community:
+  title: "Join the DEL-BOY® community"
+  text: "Local bosses and workers swapping tips on how to make every job easier. Jump into the WhatsApp group."
+  button: "Join the WhatsApp group"
+
 final:
   title: "Ready when you are."
-  text: "Get DEL-BOY® on your iPhone and start with your first quick job."
+  text: "Get DEL-BOY® on your iPhone and start hustling."
 ---
