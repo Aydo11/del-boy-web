@@ -83,11 +83,11 @@
     }
 
     // Preview-only illustrative feed: a new job slides in at the top every few seconds (FLIP for the rest)
-    const feed = hero.querySelector("[data-feed]");
-    if (feed && !reduce) {
-      const pool = [["Dog walking", "Pets", "#2F9E8F"], ["Car wash", "Home", "#1C7ED6"], ["Ironing help", "Home", "#C2255C"], ["Leaflet drop", "Events", "#E8590C"], ["Furniture move", "Home", "#5F3DC4"], ["Bin cleaning", "Home", "#2B8A3E"]];
-      const ease = "cubic-bezier(0.23, 1, 0.32, 1)";
-      let k = 0;
+    const pool = [["Clean vacuum & change bags", "Cleaning", "#2B8A3E"], ["Taking orders & packing takeaways", "Takeaway / Restaurant", "#D63832"], ["Filling out a form", "Administrative", "#7A4FD1"], ["Collect & drop an order", "Delivery / Van", "#1C7ED6"], ["Washing up shift", "Kitchen / Restaurant", "#E8590C"], ["Unloading stock", "Retail", "#C2255C"]];
+    const ease = "cubic-bezier(0.23, 1, 0.32, 1)";
+    let k = 0;
+    if (!reduce) hero.querySelectorAll("[data-feed]").forEach((feed) => {
+      const max = +feed.dataset.max || 6;
       setInterval(() => {
         if (document.hidden || hero.classList.contains("is-off") || !feed.closest(".screen.is-active")) return;
         const cards = [...feed.children];
@@ -108,9 +108,9 @@
           if (dy) c.animate([{ transform: `translateY(${dy}px)` }, { transform: "none" }], { duration: 550, easing: ease });
         });
         const last = feed.lastElementChild;
-        if (feed.children.length > 6) last.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, easing: "ease-out" }).onfinish = () => last.remove();
+        if (feed.children.length > max) last.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, easing: "ease-out" }).onfinish = () => last.remove();
       }, 2600);
-    }
+    });
   }
 
   // ── Highlights carousel: buttons step one card, progress follows scroll ──
