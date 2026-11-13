@@ -11,10 +11,10 @@ intro: "Questions about downloading the app, your account or a job? We're here t
 faqGroups:
   - title: "Getting started"
     items:
-      - q: "How do I download DEL-BOY® on iPhone?"
-        a: "DEL-BOY® is launching on the App Store soon. When it's live, use the App Store badge on our homepage or search for DEL-BOY® in the App Store on your iPhone."
-      - q: "Is DEL-BOY® available on Android?"
-        a: "Android is coming soon."
+      - q: "When will the DEL-BOY® app be available on iOS and Android?"
+        a: "DEL-BOY® is launching exclusively on the App Store first, then on Google Play soon."
+      - q: "What areas does DEL-BOY® currently cover?"
+        a: "We're active across London, the West Midlands, Cumbria, South Wales, the North East and surrounding regional corridors, connecting local bosses directly with trusted workers."
       - q: "Who is DEL-BOY® for?"
         a: "People looking for quick jobs, and people who need someone for a job."
   - title: "Your account"
@@ -29,6 +29,10 @@ faqGroups:
         a: "Yes. DEL-BOY® is for people who need someone for a job as well as people looking for work."
       - q: "Where do I see a job's details?"
         a: "Tap any job in the app to open its details."
+      - q: "Can workers be paid in cash?"
+        a: "Yes, for instant delivery jobs. Businesses can hand the worker's pay over in cash at pickup, while the platform fee is paid by card in advance when the job is posted."
+      - q: "Do jobs come with perks?"
+        a: "Many do. Businesses can offer perks such as uniform, meals or staff accommodation, and you'll see them on the job before you apply."
   - title: "Technical issues"
     items:
       - q: "The app isn't working properly."
@@ -38,6 +42,8 @@ faqGroups:
 <section aria-labelledby="contact-title" class="contact-card">
   <h2 id="contact-title">Contact us</h2>
   <p>Email <a class="email-link" href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}</a> and the DEL-BOY® team will get back to you.</p>
+  {% if site.whatsapp.number %}<p>Or <a href="https://wa.me/{{ site.whatsapp.number }}" rel="noopener">message us on WhatsApp</a>.</p>{% endif %}
+  {% if site.whatsapp.groupUrl %}<p>Join the conversation with local bosses and workers in our <a href="{{ site.whatsapp.groupUrl }}" rel="noopener">WhatsApp community group</a>.</p>{% endif %}
   <p class="hint">Please don't include passwords or payment card details in your message.</p>
 
   {% if site.form.action or build.preview %}
