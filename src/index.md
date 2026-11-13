@@ -83,19 +83,19 @@ audiences:
 # Three steps for each audience. PREVIEW WORDING — replace with the exact steps from the app.
 steps:
   workers:
-    - title: "Browse jobs"
-      text: "Open DEL-BOY® and look through the quick jobs on offer."
-    - title: "Check the details"
-      text: "Tap a job to see what's involved and whether it suits you."
-    - title: "Take the next step"
-      text: "Follow the prompts in the app to go ahead."
+    - title: "Get verified"
+      text: "Sign up and verify with photo ID, or a right to work share code if you're not a British or Irish citizen."
+    - title: "Find jobs near you"
+      text: "Go online and watch nearby jobs pop up live on the map."
+    - title: "Take the job"
+      text: "Tap a job, check the details and accept it to get started."
   posters:
-    - title: "Describe the work"
-      text: "Say what you need doing in a few words."
-    - title: "Add the details"
-      text: "Fill in the information the app asks for."
-    - title: "Follow up in the app"
-      text: "Keep track of your job from your account."
+    - title: "Choose how you hire"
+      text: "Request a worker instantly (self-employed), or hire hourly or weekly (PAYE employees). Weekly jobs can include staff accommodation."
+    - title: "Pick when you need them"
+      text: "Now, as soon as possible, or scheduled for later."
+    - title: "Accept, pay and go live"
+      text: "The app works out the minimum pay for both sides. Just accept and pay, and your job goes live."
 
 walkthrough:
   title: "See DEL-BOY® in action"
@@ -122,4 +122,5 @@ community:
 final:
   title: "Ready when you are."
   text: "Get DEL-BOY® on your iPhone and start hustling."
+  credit: "DEL-BOY® powered by Remotedev"
 ---
