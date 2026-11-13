@@ -1,4 +1,4 @@
-{# PREVIEW-ONLY illustrative app screens. Rendered only when build.preview is true and no approved screenshot exists. #}
+{# Illustrated app screens, used wherever no screenshot image is set. #}
 {% macro mock(name) %}
 <div class="mock mock-{{ name }}" aria-hidden="true">
   <div class="mock-status"><span>9:41</span><span class="mock-bars"></span></div>
@@ -92,6 +92,5 @@
     <div class="mock-field tall"><i></i><i></i><i class="short"></i></div>
     <div class="mock-btn">Continue</div>
   {% endif %}
-  <div class="mock-watermark">Illustrative preview</div>
 </div>
 {% endmacro %}
