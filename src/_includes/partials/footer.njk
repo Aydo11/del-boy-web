@@ -23,6 +23,7 @@
         DEL-BOY® is operated by {{ site.company.name }}.
         {{ site.company.jurisdiction }}, company number {{ site.company.number }}.
         Registered office: {{ site.company.address }}.
+        {% if site.company.ico %}ICO registration: {{ site.company.ico }}.{% endif %}
       </p>
       {% else %}
       <p>DEL-BOY® — contact <a href="mailto:{{ site.supportEmail }}">{{ site.supportEmail }}</a>.</p>
