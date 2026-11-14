@@ -30,7 +30,8 @@
     "name": "GAME-BOY TECHNOLOGY LTD",
     "number": "14277750",
     "jurisdiction": "Registered in England and Wales",
-    "address": "1 International House, St. Katharine's Way, London E1W 1UN"
+    "address": "1 International House, St Katharine's Way, London E1W 1UN",
+    "ico": "ZC301068"
   },
 
   "form": {
@@ -41,9 +42,9 @@
 
   "legal": {
     "_help": "Set approved to true only when the client has signed off the final wording in privacy.md / terms.md.",
-    "privacyApproved": false,
+    "privacyApproved": true,
     "termsApproved": false,
-    "privacyUpdated": "",
+    "privacyUpdated": "14 November 2026",
     "termsUpdated": ""
   },
 
