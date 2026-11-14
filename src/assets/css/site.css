@@ -463,3 +463,21 @@ html:not(.js) .hl-progress { display: none; }
 
 /* Final section developer credit */
 .final-credit { margin: 28px 0 0; font-size: .85rem; letter-spacing: .02em; color: #8F857A; }
+
+/* ── Privacy notice & DBS policy ── */
+.doc-jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 8px; }
+.doc-jump a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); font-weight: 600; font-size: .9rem; text-decoration: none; }
+.doc-jump a:hover { border-color: var(--red-ink); color: var(--red-ink); }
+.prose h4 { font-size: 1.05rem; margin: 1.4em 0 .5em; }
+.prose ul ul { margin-top: .5em; }
+.info-card { background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--red); border-radius: 12px; padding: 18px 22px; margin: 20px 0; }
+.info-card ul { margin: 0; padding-left: 1.1em; }
+.info-card li:last-child { margin-bottom: 0; }
+.table-wrap { overflow-x: auto; margin: 20px 0 28px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; }
+.table-wrap table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: .93rem; text-align: left; }
+.table-wrap th { background: #EFE8DC; font-weight: 600; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.table-wrap td { padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.table-wrap tr:last-child td { border-bottom: 0; }
+.policy-divider { border: 0; border-top: 2px dashed var(--line); margin: 56px 0 40px; }
+.policy-title { margin-top: 0; }
+#dbs-policy:focus { outline: none; }
